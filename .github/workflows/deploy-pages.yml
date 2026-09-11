@@ -46,12 +46,6 @@ jobs:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
 
-      # SPA fallback: GitHub Pages serves 404.html for unmatched paths.
-      # Making it identical to index.html lets React Router take over
-      # client-side on direct links/refreshes.
-      - name: Add SPA 404 fallback
-        run: cp dist/index.html dist/404.html
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
